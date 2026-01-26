@@ -3,7 +3,7 @@ server:
 
 spring:
   kafka:
-    bootstrap-servers: localhost:9093
+    bootstrap-servers: localhost:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
@@ -12,3 +12,10 @@ spring:
     redis:
       host: localhost
       port: 6379
+
+  cassandra:
+    contact-points: localhost
+    port: 9042
+    keyspace-name: trading
+    local-datacenter: datacenter1
+    schema-action: NONE
