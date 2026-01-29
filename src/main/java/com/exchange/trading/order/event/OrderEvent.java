@@ -1,13 +1,13 @@
 package com.exchange.trading.order.event;
 
-import ch.qos.logback.core.status.InfoStatus;
-
 import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.UUID;
 
 public class OrderEvent {
 
+
+    private String userId;
     private UUID eventId;
     private UUID orderId;
     private String symbol;
@@ -26,6 +26,14 @@ public class OrderEvent {
 
     public UUID getOrderId() {
         return orderId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public void setOrderId(UUID orderId) {
