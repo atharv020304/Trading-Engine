@@ -4,9 +4,22 @@ server:
 spring:
   kafka:
     bootstrap-servers: localhost:9092
+
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+      acks: all
+      retries: 10
+      properties:
+        enable.idempotence: true
+        max.in.flight.requests.per.connection: 5
+        transactional.id: order-service-tx
+
+    consumer:
+      enable-auto-commit: false
+      properties:
+        isolation.level: read_committed
 
   data:
     redis:
